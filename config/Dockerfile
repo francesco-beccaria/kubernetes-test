@@ -7,8 +7,7 @@ RUN apt-get update \
         git \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-COPY Makefile setup.py /var/app/
-COPY config /var/app/config
+COPY . /var/app
 
 WORKDIR /var/app
 
