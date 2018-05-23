@@ -18,7 +18,7 @@ def init_producer():
 
     app = init_celery('producer', 'kubernetes_test.producer', CONSUMING_ROUTING_KEYS)
 
-    message_interval = environ.get('MESSAGE_INTERVAL', 5)
+    message_interval = int(environ.get('MESSAGE_INTERVAL', 5))
 
     app.conf.beat_schedule = {
         'send_message': {
